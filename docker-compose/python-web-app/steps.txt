@@ -1,0 +1,8 @@
+* docker-compose up       - using docker-compose.yml it creates containers
+* docker-compose up -d    - starting in detached mode
+* docker-compose logs     - logs
+* docker-compose kill     - stops all containers
+* docker-compose rm       - deletes all containers
+
+So run "docker-compose up -d"  and browse http://192.168.99.100:8888/hello
+Webbit launched in container

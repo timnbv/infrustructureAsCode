@@ -1,10 +1,10 @@
 version: '2'
 services:
-  web:
+#  jetty:
+#    build: Dockerfile_jetty
+#    ports:
+#     - "5000:5000"
+  webbit:
     build: .
     ports:
-     - "5000:5000"
-    volumes:
-     - .:/code
-  redis:
-    image: "redis:alpine"
+     - "8888:8888"
