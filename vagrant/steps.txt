@@ -1,0 +1,33 @@
+* download and install Vagrant
+* check PATH variable with vagrant\bin folder
+* go to the folder (e.g. vagrant-example)
+* cmd -> vagrant init
+* populate Vagrantfile with: 
+	Vagrant.configure(2) do |config|
+	  # A standard Ubuntu 12.04 LTS 32-bit box
+	  # For more boxes, you can look at https://atlas.hashicorp.com/boxes/search
+	  config.vm.box = "hashicorp/precise32"
+	  config.vm.provision "shell", path: "vagrant-provision.sh"
+	  # Create a private network, which allows host-only access to the machine
+	  # using a specific IP.
+	  config.vm.network "private_network", ip: "192.168.8.8"
+	  # The most common configuration options are documented and commented below.
+	  # For a complete reference, please see the online documentation at
+	  # https://docs.vagrantup.com.
+	  
+* cmd -> vagrant up
+
+* try 192.168.8.8:8080 in the browser. Tomcat works!
+* cmd -> vagrant ssh (connected to vagrant box by ssh)
+* copy smaple.war to tomcat webapps/ directory
+  $cd /
+  $sudo cp /vagrant/sample.war /var/lib/tomcat7/webapps/
+ 
+* change jre to 7 version in tomcat's settings
+$cd etc/default 
+$nano tomcat7 
+   JAVA_HOME=/usr/lib/jvm/java-7-oracle
+$service tomcat7 restart
+
+* look at 192.168.8.8:8080/sample
+  
